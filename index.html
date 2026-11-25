@@ -4,39 +4,43 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ghost Ruler: pick a version</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{--ink:#2b2340;--paper:#fffaf0;--shadow:0 5px 0 rgba(43,35,64,.85);font-family:"Trebuchet MS","Segoe UI","Nunito",system-ui,sans-serif}
+  :root{--ink:#241a3f;--gold:#ffd166;--pink:#ff7aa2;--mint:#7ee0a8;--glass:rgba(34,24,72,.62);--line:rgba(255,255,255,.16);
+        font-family:"Nunito",system-ui,sans-serif;color:#fff}
   *{box-sizing:border-box}
   html,body{margin:0;min-height:100%}
-  body{color:var(--ink);background:#2d2a5a;
+  body{background:#14103a;
     background:
-      radial-gradient(circle at 85% 8%, #fff7c2 0 26px, #fff7c240 27px 40px, transparent 41px),
-      radial-gradient(2px 2px at 12% 14%, #fff 99%, transparent),
-      radial-gradient(2px 2px at 30% 6%, #fff 99%, transparent),
-      radial-gradient(2px 2px at 55% 18%, #fff 99%, transparent),
-      radial-gradient(2px 2px at 8% 40%, #fff 99%, transparent),
-      radial-gradient(2px 2px at 92% 35%, #fff 99%, transparent),
-      linear-gradient(#2d2a5a, #5a3f86);
+      radial-gradient(circle at 84% 9%, #fff3c4 0 30px, rgba(255,243,196,.22) 31px 52px, transparent 53px),
+      radial-gradient(2px 2px at 12% 14%, #fff 99%, transparent), radial-gradient(2px 2px at 30% 6%, #fff 99%, transparent),
+      radial-gradient(1.5px 1.5px at 55% 18%, #fff 99%, transparent), radial-gradient(2px 2px at 8% 40%, #fff 99%, transparent),
+      radial-gradient(1.5px 1.5px at 92% 35%, #fff 99%, transparent), radial-gradient(1.5px 1.5px at 70% 28%, #fff 99%, transparent),
+      linear-gradient(#14103a 0%, #2e2168 55%, #6a3f8c 100%);
     background-attachment:fixed}
-  main{max-width:640px;margin:0 auto;padding:24px 16px 40px}
-  .hero{text-align:center;color:#fff}
-  .hero svg{width:96px;height:104px;filter:drop-shadow(0 8px 0 rgba(0,0,0,.25));animation:float 2.4s ease-in-out infinite}
-  .hero h1{margin:6px 0 4px;font-size:40px;text-shadow:0 4px 0 var(--ink);letter-spacing:1px}
-  .hero p{margin:0 0 20px;font-weight:700;opacity:.9}
+  main{max-width:640px;margin:0 auto;padding:28px 16px 40px}
+  .hero{text-align:center}
+  .hero svg{width:92px;height:100px;filter:drop-shadow(0 10px 18px rgba(169,139,255,.55));animation:float 2.6s ease-in-out infinite}
+  .hero h1{font-family:"Fredoka",system-ui,sans-serif;font-weight:700;margin:6px 0 4px;font-size:46px;letter-spacing:.5px;text-shadow:0 4px 0 var(--ink)}
+  .hero p{margin:0 0 22px;font-weight:700;opacity:.85}
   @keyframes float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(3deg)}}
-  ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px}
-  a.ver{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;background:var(--paper);
-        border:3px solid var(--ink);border-radius:16px;box-shadow:var(--shadow);padding:14px 16px;transition:transform .12s}
-  a.ver:hover,a.ver:focus-visible{transform:translateY(-3px) rotate(-.5deg);outline:none;background:#fff3c4}
-  a.ver:active{transform:translateY(2px);box-shadow:0 2px 0 var(--ink)}
-  .tag{flex:none;font-weight:900;font-size:18px;background:#ffd166;border:3px solid var(--ink);border-radius:12px;padding:4px 10px}
+  ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+  a.ver{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;background:var(--glass);
+        border:1.5px solid var(--line);border-radius:18px;padding:14px 16px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+        box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .14s, background .14s, border-color .14s}
+  a.ver:hover,a.ver:focus-visible{transform:translateY(-3px);background:rgba(60,42,120,.72);border-color:rgba(255,209,102,.6);outline:none}
+  a.ver:active{transform:translateY(1px)}
+  .tag{flex:none;font-family:"Fredoka",sans-serif;font-weight:700;font-size:18px;color:var(--ink);background:var(--gold);border-radius:12px;padding:5px 11px}
   .info{flex:1;min-width:0}
-  .top{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-weight:900}
-  .new{font-size:11px;background:#ff7aa2;color:#fff;border:2px solid var(--ink);border-radius:999px;padding:0 8px}
-  .date{font-size:13px;font-weight:700;opacity:.7}
-  .what{font-weight:600;margin-top:2px}
-  .play{flex:none;font-weight:900;background:#7ee081;border:3px solid var(--ink);border-radius:12px;padding:6px 12px;box-shadow:0 3px 0 var(--ink)}
-  footer{margin-top:24px;color:#fff;opacity:.75;text-align:center;font-size:13px;font-weight:600}
+  .top{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-weight:800}
+  .new{font-size:11px;background:var(--pink);color:#fff;border-radius:999px;padding:1px 9px;letter-spacing:.3px}
+  .date{font-size:13px;font-weight:700;opacity:.65}
+  .what{font-weight:700;margin-top:3px;line-height:1.35;opacity:.95}
+  .play{flex:none;font-family:"Fredoka",sans-serif;font-weight:600;color:var(--ink);background:var(--mint);border-radius:12px;padding:7px 14px;box-shadow:0 3px 0 rgba(0,0,0,.3)}
+  footer{margin-top:26px;opacity:.65;text-align:center;font-size:13px;font-weight:700}
+  @media (max-width:420px){ .hero h1{font-size:38px} a.ver{gap:10px;padding:12px} .play{padding:6px 10px} }
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -44,19 +48,19 @@
 <main>
   <div class="hero">
     <svg viewBox="0 0 60 66" aria-hidden="true">
-      <path d="M10 34 C10 16 20 8 30 8 C40 8 50 16 50 34 L50 58 Q45 64 40 58 Q35 52 30 58 Q25 64 20 58 Q15 52 10 58 Z" fill="#cdbcff" stroke="#2b2340" stroke-width="3" stroke-linejoin="round"/>
-      <path d="M30 2 C24 10 25 15 30 17 C35 15 36 10 30 2Z" fill="#ffb020" stroke="#2b2340" stroke-width="2.5"/>
-      <ellipse cx="23" cy="30" rx="4" ry="5.5" fill="#2b2340"/><ellipse cx="37" cy="30" rx="4" ry="5.5" fill="#2b2340"/>
+      <path d="M10 34 C10 16 20 8 30 8 C40 8 50 16 50 34 L50 58 Q45 64 40 58 Q35 52 30 58 Q25 64 20 58 Q15 52 10 58 Z" fill="#b7a0ff" stroke="#241a3f" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M30 2 C24 10 25 15 30 17 C35 15 36 10 30 2Z" fill="#ffa62b" stroke="#241a3f" stroke-width="2.5"/>
+      <ellipse cx="23" cy="30" rx="4" ry="5.5" fill="#241a3f"/><ellipse cx="37" cy="30" rx="4" ry="5.5" fill="#241a3f"/>
       <circle cx="24.3" cy="28" r="1.5" fill="#fff"/><circle cx="38.3" cy="28" r="1.5" fill="#fff"/>
       <ellipse cx="18" cy="37" rx="3" ry="2" fill="#ff9bb5"/><ellipse cx="42" cy="37" rx="3" ry="2" fill="#ff9bb5"/>
-      <ellipse cx="30" cy="38" rx="3" ry="3.6" fill="#2b2340"/>
+      <ellipse cx="30" cy="38" rx="3" ry="3.6" fill="#241a3f"/>
     </svg>
     <h1>Ghost Ruler</h1>
     <p>Pick a version to play. Newest is on top.</p>
   </div>
 
   <ul id="list"></ul>
-  <noscript><p style="color:#fff">Scripts are off. Open a version directly: <a style="color:#ffd166" href="versions/ghost-ruler-r1.html">r1</a></p></noscript>
+  <noscript><p>Scripts are off. Open a version directly: <a style="color:#ffd166" href="versions/ghost-ruler-r2.html">r2</a>, <a style="color:#ffd166" href="versions/ghost-ruler-r1.html">r1</a></p></noscript>
 
   <footer>Every version stays playable here, so you can compare old and new.</footer>
 </main>
@@ -65,7 +69,8 @@
 // ===== Version list: to add a version, put one new line at the TOP. =====
 // file is relative to this page, so it works on any host or sub-folder.
 const VERSIONS = [
-  { id: 'r1', date: '2026-11-25', file: 'versions/ghost-ruler-r1.html', what: 'First playable house: 3 ghosts, 4 people, Belief, weak spots, screams that spread.' },
+  { id: 'r2', date: '2026-11-25', file: 'versions/ghost-ruler-r2.html', what: 'Real 3D dollhouse you can spin and zoom, cartoon lighting, scare effects, sounds, a guided first night and menus.' },
+  { id: 'r1', date: '2026-11-25', file: 'versions/ghost-ruler-r1.html', what: 'First playable house (flat 2D): 3 ghosts, 4 people, Belief, weak spots, screams that spread.' },
 ];
 // ========================================================================
 
